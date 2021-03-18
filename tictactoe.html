@@ -6,16 +6,9 @@
 </head>
 
 <body>
-<!DOCTYPE html>
-<html lang="en">
-
-<body>
 <h3>Caro Game Simple</h3>
 <p id="carogame" />
 <input type="button" value='Chơi' id="Chơi" onclick="play1()">
-</body>
-
-</html>
 <script>
     let b = document.getElementById("carogame");
     let board = [];
@@ -44,7 +37,16 @@
         }
         data += "<br/><br/><input type='button' value='Chơi' onclick='play2()'>"
         b.innerHTML = "<hr/>" + data;
-        for(i=0; i<5; i++){
+        for(i=0; i<5; i++) {
+            for (j = 0; j < 5; j++) {
+                if (i==0||i==4) {
+                    if (board[i][j - 1] == "x" && board[i][j + 1] == "x") {
+                        alert("win")
+                    }
+                }
+            }
+        }
+        for(i=1; i<4; i++){
             for (j=0; j<5; j++){
                 if (board[i][j]=="x"){
                     if ((board[i][j-1]=="x"&&board[i][j+1]=="x")||(board[i+1][j]=="x"&&board[i-1][j]=="x")||(board[i-1][j-1]=="x"&&board[i+1][j+1]=="x")||(board[i-1][j+1]=="x"&&board[i+1][j-1]=="x")){
@@ -68,6 +70,24 @@
         }
         data += "<br/><br/><input type='button' value='Chơi' onclick='play1()'>"
         b.innerHTML = "<hr/>" + data;
+        for(i=0; i<5; i++) {
+            for (j = 0; j < 5; j++) {
+                if (i==0||i==4) {
+                    if (board[i][j - 1] == "O" && board[i][j + 1] == "O") {
+                        alert("win")
+                    }
+                }
+            }
+        }
+        for(i=1; i<4; i++){
+            for (j=0; j<5; j++){
+                if (board[i][j]=="O"){
+                    if ((board[i][j-1]=="O"&&board[i][j+1]=="O")||(board[i+1][j]=="O"&&board[i-1][j]=="O")||(board[i-1][j-1]=="O"&&board[i+1][j+1]=="O")||(board[i-1][j+1]=="O"&&board[i+1][j-1]=="O")){
+                        alert("win")
+                    }
+                }
+            }
+        }
     }
 </script>
 </body>
